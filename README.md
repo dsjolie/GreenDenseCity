@@ -28,13 +28,37 @@ The visualization tool allows users to:
 - Visualize the impact of green space integration
 - Learn about air quality and climate effects of urban design decisions
 
-## Installation
+## Installation (Installer)
 
-*Installation instructions will be added when builds are available.*
+We ship a Windows installer in the dist repo that handles both the app and the volumetric data:
 
-## Usage
+1. Run `GronTatStad-Setup-0.2.0.exe`.
+2. Pick where to store data. The installer shows any existing path from `Documents\GronTatStad\DataPath.txt` and lets you keep it or reset to the default `%LOCALAPPDATA%\GronTatStad\VolumetricData`.
+3. Choose dataset:
+   - **Minimal (recommended first run)** – downloads `volumetric-data-v0.2.0-min.zip` into a subfolder `v0.2.0-min`.
+   - **Full** – downloads all parts into `v0.2.0-full`.
+4. Installer writes two pointers so the app can find the data:
+   - `Documents\GronTatStad\DataPath.txt` → base data folder
+   - `<InstallDir>\DTCC\dtcc_config.json` → mirrors the same base path
 
-*Usage instructions will be added when builds are available.*
+### Data layout
+
+The base path (e.g. `%LOCALAPPDATA%\GronTatStad\VolumetricData`) contains versioned dataset folders:
+
+```
+VolumetricData\
+  v0.2.0-min\   # minimal dataset
+  v0.2.0-full\  # full dataset (all parts extracted here)
+```
+
+The app scans the base path for subfolders, so multiple dataset versions can coexist.
+
+### Re-running the installer
+
+You can rerun the installer to:
+- Switch between minimal/full
+- Change the data location
+- Repair downloads
 
 ## Educational Materials
 
