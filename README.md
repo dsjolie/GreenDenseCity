@@ -30,7 +30,7 @@ The visualization tool allows users to:
 
 ## Installation (Installer)
 
-Pre-release installer (v0.2.0): https://github.com/dsjolie/GreenDenseCity/releases/download/v0.2.0/GronTatStad-Setup-0.2.0.exe
+Pre-release installer (v0.2.3): https://github.com/dsjolie/GreenDenseCity/releases/download/v0.2.3/GronTatStad-Setup-0.2.3.exe
 
 We ship a Windows installer in the dist repo that handles both the app and the volumetric data:
 
