@@ -1,4 +1,6 @@
-# Green Dense City - Visualization Tool
+# Green Dense City — Visualization Tool
+
+> ℹ️ **The application UI is in Swedish.** This README is in English; the installer and the app itself ("GrönTätStad") run in Swedish.
 
 An interactive visualization tool for exploring how urban design, buildings, and green spaces contribute to healthy and sustainable city environments.
 
@@ -28,39 +30,46 @@ The visualization tool allows users to:
 - Visualize the impact of green space integration
 - Learn about air quality and climate effects of urban design decisions
 
-## Installation (Installer)
+## Installation
 
-Pre-release installer (v0.2.3): https://github.com/dsjolie/GreenDenseCity/releases/download/v0.2.3/GronTatStad-Setup-0.2.3.exe
+End users don't run the packaged app directly. A small **launcher** handles downloading and updating the app and its volumetric datasets, and then starts the visualization.
 
-We ship a Windows installer in the dist repo that handles both the app and the volumetric data:
+### Recommended (Windows)
 
-1. Run `GronTatStad-Setup-0.2.3.exe`.
-2. Pick where to store data. The installer shows any existing path from `Documents\GronTatStad\DataPath.txt` and lets you keep it or reset to the default `%LOCALAPPDATA%\GronTatStad\VolumetricData`.
-3. Choose dataset:
-   - **Lowres (recommended first run)** – downloads `volumetric-data-v0.2.2-lowres.zip` into a subfolder `v0.2.2-lowres`.
-   - **Full** – downloads all parts into `v0.2.0-full`.
-4. Installer writes two pointers so the app can find the data:
-   - `Documents\GronTatStad\DataPath.txt` → base data folder
-   - `<InstallDir>\DTCC\dtcc_config.json` → mirrors the same base path
+Install **v0.2.6** using the Windows installer, and let the launcher self-update to the latest version after the first start:
 
-### Data layout
+1. Download **[GronTatStad-Setup-0.2.6.exe](https://github.com/dsjolie/GreenDenseCity/releases/download/v0.2.6/GronTatStad-Setup-0.2.6.exe)** from the [v0.2.6 release](https://github.com/dsjolie/GreenDenseCity/releases/tag/v0.2.6).
+2. Run the installer. It installs the launcher and writes the data-path pointer the app needs.
+3. Launch **GrönTätStad** from the Start menu. The launcher will:
+   - Check for a newer launcher build and update itself if available.
+   - Offer to download the latest app build and volumetric dataset.
+   - Start the visualization once everything is in place.
 
-The base path (e.g. `%LOCALAPPDATA%\GronTatStad\VolumetricData`) contains versioned dataset folders:
+> Why 0.2.6 rather than the absolute latest? It is the most recent release that ships a Windows installer. Newer app builds are picked up automatically by the launcher after install.
 
-```
-VolumetricData\
-  v0.2.2-lowres\   # low resolution dataset
-  v0.2.0-full\  # full dataset (all parts extracted here)
-```
+### macOS
 
-The app scans the base path for subfolders, so multiple dataset versions can coexist.
+A macOS (Apple Silicon) build of the launcher is published alongside the app releases. There is no installer yet — download the latest `GronTatStad-Launcher-*-mac-arm64.zip` from the [Releases page](https://github.com/dsjolie/GreenDenseCity/releases), unzip it, and move the `.app` into `/Applications` before launching. The launcher then handles app and data downloads as on Windows.
 
-### Re-running the installer
+### What the launcher manages
 
-You can rerun the installer to:
-- Switch between lowres/full
-- Change the data location
-- Repair downloads
+- **Launcher binary** — self-updates from this repository's Releases.
+- **App binary** — downloaded into a per-user location and updated when a new release is published.
+- **Volumetric datasets** — versioned dataset folders (e.g. `v0.2.2-lowres`, `v0.2.0-full`) installed under a single base directory. Multiple dataset versions can coexist; the app scans the base directory and lists every dataset it finds.
+
+### Data locations
+
+| Platform | Path |
+| --- | --- |
+| Windows | `%LOCALAPPDATA%\GronTatStad\VolumetricData\` |
+| macOS   | `~/Library/Application Support/GronTatStad/VolumetricData/` |
+
+The launcher also writes a pointer file at `Documents\GronTatStad\DataPath.txt` (Windows) or `~/Documents/GronTatStad/DataPath.txt` (macOS) so the app can locate the data directory.
+
+### Troubleshooting
+
+- **App doesn't see any datasets** — check that the path inside `Documents\GronTatStad\DataPath.txt` exists and contains at least one subfolder with a `DataTextureSources.json` file. Rerun the launcher to redownload if needed.
+- **Stuck on an old version** — the launcher updates on start. Quit it completely and reopen to force an update check.
 
 ## Educational Materials
 
@@ -69,6 +78,8 @@ This tool is complemented by:
 - Informational texts and guides
 - Video content
 - Research findings from the CityAirSim project
+
+A Swedish-language application manual ([GonTatStad_ManualApplikation.pdf](GonTatStad_ManualApplikation.pdf)) is included in this repository.
 
 ## Contributing to UN Sustainable Development Goals
 
