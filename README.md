@@ -57,55 +57,10 @@ A macOS (Apple Silicon) build of the launcher is published alongside the app rel
 - **App binary** — downloaded into a per-user location and updated when a new release is published.
 - **Volumetric datasets** — versioned dataset folders (e.g. `v0.2.2-lowres`, `v0.2.0-full`) installed under a single base directory. Multiple dataset versions can coexist; the app scans the base directory and lists every dataset it finds.
 
-### Data locations
-
-| Platform | Path |
-| --- | --- |
-| Windows | `%LOCALAPPDATA%\GronTatStad\VolumetricData\` |
-| macOS   | `~/Library/Application Support/GronTatStad/VolumetricData/` |
-
-The launcher also writes a pointer file at `Documents\GronTatStad\DataPath.txt` (Windows) or `~/Documents/GronTatStad/DataPath.txt` (macOS) so the app can locate the data directory.
-
-### Troubleshooting
-
-- **App doesn't see any datasets** — check that the path inside `Documents\GronTatStad\DataPath.txt` exists and contains at least one subfolder with a `DataTextureSources.json` file. Rerun the launcher to redownload if needed.
-- **Stuck on an old version** — the launcher updates on start. Quit it completely and reopen to force an update check.
-
-## Educational Materials
-
-This tool is complemented by:
-- Educational lectures
-- Informational texts and guides
-- Video content
-- Research findings from the CityAirSim project
-
-A Swedish-language application manual ([GonTatStad_ManualApplikation.pdf](GonTatStad_ManualApplikation.pdf)) is included in this repository.
-
-## Contributing to UN Sustainable Development Goals
-
-This project contributes to three UN Global Goals:
-- **Goal 3:** Good Health and Well-Being
-- **Goal 11:** Sustainable Cities and Communities
-- **Goal 15:** Life on Land
-
-## Project Information
-
-- **Duration:** 2024–2026
-- **Budget:** 2 MSEK
-- **Funding:** Formas
-
 ## Learn More
 
 For detailed information about the research project, visit:
 https://www.ivl.se/english/ivl/our-offer/research-projects/air/green-dense-city.html
-
-## License
-
-*License information to be added.*
-
-## Contact
-
-*Contact information to be added.*
 
 ---
 
