@@ -49,7 +49,9 @@ Install **v0.2.6** using the Windows installer, and let the launcher self-update
 
 ### macOS
 
-A macOS (Apple Silicon) build of the launcher is published alongside the app releases. There is no installer yet — download the latest `GronTatStad-Launcher-*-mac-arm64.zip` from the [Releases page](https://github.com/dsjolie/GreenDenseCity/releases), unzip it, and move the `.app` into `/Applications` before launching. The launcher then handles app and data downloads as on Windows.
+A macOS (Apple Silicon) build of the launcher is published alongside the app releases. There is no installer yet — download the latest `GronTatStad-Launcher-*-mac.zip` from the [Releases page](https://github.com/dsjolie/GreenDenseCity/releases), unzip it, and move the `.app` into `/Applications` before launching. The launcher then handles app and data downloads as on Windows.
+
+Latest mac launcher for install as above is: [GronTatStad-v0.2.7-mac.zip](https://github.com/dsjolie/GreenDenseCity/releases/download/v0.2.7/GronTatStad-v0.2.7-mac.zip)
 
 ### What the launcher manages
 
